@@ -1,5 +1,6 @@
 package be.bt.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -36,7 +37,6 @@ public class Hall {
 
 
 	public Hall(  int number,int floor, double lengthField, double widthField, Place place) {
-		super();
 		
 		this.number= number;
 		this.floor = floor;
@@ -44,6 +44,7 @@ public class Hall {
 		this.widthField = widthField;
 		this.place = place;
 	}
+	
 
 
 	public long getId() {
