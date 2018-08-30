@@ -2,10 +2,9 @@ package be.bt.domain;
 
 public class Person {
 	
-	private 	int id;
-	private 	String name;
+	private int id;
+	private String name;
 	private String firstname;
-	private String address;
 	private int telNumber;
 	private String email;
 	
@@ -18,7 +17,6 @@ public class Person {
 		this.id = id;
 		this.name = name;
 		this.firstname = firstname;
-		this.address = address;
 		this.telNumber = telNumber;
 		this.email = email;
 	}
@@ -47,13 +45,6 @@ public class Person {
 		this.firstname = firstname;
 	}
 
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
 	public int getTelNumber() {
 		return telNumber;

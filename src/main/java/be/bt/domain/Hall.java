@@ -16,10 +16,10 @@ public class Hall {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String type;
-	private short floor;
-	private double length;
-	private double width;
+	private int floor;
+	private int number;
+	private double lengthField;
+	private double widthField;
 	
 	
 	@JsonIgnore
@@ -35,13 +35,13 @@ public class Hall {
 	
 
 
-	public Hall( String type, short floor, double length, double width, Place place) {
+	public Hall(  int number,int floor, double lengthField, double widthField, Place place) {
 		super();
 		
-		this.type = type;
+		this.number= number;
 		this.floor = floor;
-		this.length = length;
-		this.width = width;
+		this.lengthField = lengthField;
+		this.widthField = widthField;
 		this.place = place;
 	}
 
@@ -50,56 +50,70 @@ public class Hall {
 		return id;
 	}
 
+	
 
 	public void setId(long id) {
 		this.id = id;
 	}
 
 
-	public String getType() {
-		return type;
-	}
-
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-
-	public short getFloor() {
+	public int getFloor() {
 		return floor;
 	}
 
 
-	public void setFloor(short floor) {
+	public void setFloor(int floor) {
 		this.floor = floor;
 	}
 
 
-	public double getLength() {
-		return length;
+
+
+	public int getNumber() {
+		return number;
 	}
 
 
-	public void setLength(double length) {
-		this.length = length;
+
+
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 
-	public double getWidth() {
-		return width;
+
+
+	public double getLengthField() {
+		return lengthField;
 	}
 
 
-	public void setWidth(double width) {
-		this.width = width;
+
+
+	public void setLengthField(double lengthField) {
+		this.lengthField = lengthField;
 	}
+
+
+
+
+	public double getWidthField() {
+		return widthField;
+	}
+
+
+
+
+	public void setWidthField(double widthField) {
+		this.widthField = widthField;
+	}
+
+
 
 
 	public Place getPlace() {
 		return place;
 	}
-
 
 	public void setPlace(Place place) {
 		this.place = place;

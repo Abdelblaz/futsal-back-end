@@ -1,5 +1,7 @@
 package be.bt.domain;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +18,16 @@ public class Place {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private short id;
+	private long id;
 	private String name;
 	private String city;
 	private String locality;
 	private String street;
-	private short nStreet;
-	private short postcode;
-	private boolean open;
+	private int nStreet;
+	private int postcode;
+	private int hOpen;
+	private  int hClose;
+	
 	private boolean shower;
 	
 	@OneToMany(mappedBy="place")
@@ -39,17 +43,17 @@ public Place() {
 
 
 
-public Place( String name, String city, String locality, String street, short nStreet, short postcode,
-		boolean open, boolean shower, List<Hall> listHall) {
+public Place(String name, String city, String locality, String street, int nStreet, int postcode,  int hOpen,
+		 int hClose, boolean shower, List<Hall> listHall) {
 	super();
-	
 	this.name = name;
 	this.city = city;
 	this.locality = locality;
 	this.street = street;
 	this.nStreet = nStreet;
 	this.postcode = postcode;
-	this.open = open;
+	this.hOpen = hOpen;
+	this.hClose = hClose;
 	this.shower = shower;
 	this.listHall = listHall;
 }
@@ -57,14 +61,14 @@ public Place( String name, String city, String locality, String street, short nS
 
 
 
-public short getId() {
+public long getId() {
 	return id;
 }
 
 
 
 
-public void setId(short id) {
+public void setId(long id) {
 	this.id = id;
 }
 
@@ -127,43 +131,57 @@ public void setStreet(String street) {
 
 
 
-public short getnStreet() {
+public int getnStreet() {
 	return nStreet;
 }
 
 
 
 
-public void setnStreet(short nStreet) {
+public void setnStreet(int nStreet) {
 	this.nStreet = nStreet;
 }
 
 
 
 
-public short getPostcode() {
+public int getPostcode() {
 	return postcode;
 }
 
 
 
 
-public void setPostcode(short postcode) {
+public void setPostcode(int postcode) {
 	this.postcode = postcode;
 }
 
 
 
 
-public boolean isOpen() {
-	return open;
+public  int gethOpen() {
+	return hOpen;
 }
 
 
 
 
-public void setOpen(boolean open) {
-	this.open = open;
+public void sethOpen( int hOpen) {
+	this.hOpen = hOpen;
+}
+
+
+
+
+public  int gethClose() {
+	return hClose;
+}
+
+
+
+
+public void sethClose( int hClose) {
+	this.hClose = hClose;
 }
 
 
@@ -194,10 +212,8 @@ public void setListHall(List<Hall> listHall) {
 	this.listHall = listHall;
 }
 
-@Override
-public String toString() {
-	return " fonctionne";
-}
+
+
 
 
 

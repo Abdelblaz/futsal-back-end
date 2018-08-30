@@ -1,12 +1,17 @@
 package be.bt;
 
+
+
+import java.time.LocalTime;
 import java.util.ArrayList;
 
+import org.hibernate.type.LocalTimeType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.format.datetime.joda.LocalTimeParser;
 
 import be.bt.domain.Client;
 import be.bt.domain.Hall;
@@ -32,29 +37,32 @@ public class FutsalBookingApplication {
 	}
 	
 	
-//	@Bean
-//	CommandLineRunner runIt(){
-//		return args -> {
-//			
-//			Place p1 = new Place( "ForestFC","Mexico" , "MexiCity", "TacosBoulevard", (short)63, (short)8787, true, true,new ArrayList());
-//			
-//			Hall h1= new Hall("para1",(short)111 ,5.111, 6.11,p1);
-//			Hall h2= new Hall("para2",(short)51 ,154.11, 200.2,p1);
-//			Hall h3= new Hall("para3",(short)29 ,4.75, 7.65 ,p1);
-//			
-//			p1.getListHall().add(h1);
-//			
-//			repoPlace.save(p1);
-//			repoHall.save(h1);
-//			repoHall.save(h2);
-//			repoHall.save(h3);
-//			repoHall.save(h1);
-//			
-//			
-//
-//			
-//		};
-//		
-//	}
+	@Bean
+	CommandLineRunner runIt(){
+		return args -> {
+			
+			//Place p1 = new Place( "ForestFC","Mexico" , "MexiCity", "TacosBoulevard", (short)63, (short)8787, true, true,new ArrayList());
+			Place p1 = new Place("MiniFootUnited", "Mexico", "MexiCity", "street", 12,7, 8,20, true, new ArrayList());
+			
+
+			
+			Hall h1= new Hall(1,111 ,5.111, 6.11,p1);
+			Hall h2= new Hall(2,51 ,154.11, 200.2,p1);
+			Hall h3= new Hall(3,29 ,4.75, 7.65 ,p1);
+			
+			p1.getListHall().add(h1);
+			
+			repoPlace.save(p1);
+			repoHall.save(h1);
+			repoHall.save(h2);
+			repoHall.save(h3);
+			repoHall.save(h1);
+			
+			
+
+			
+		};
+		
+	}
 	
 }

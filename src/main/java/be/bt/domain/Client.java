@@ -2,7 +2,7 @@ package be.bt.domain;
 
 public class Client extends Person {
 	
-
+	private String address;
 	private String locality;
 	private Note note;
 	private Reservation reservation;

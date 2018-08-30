@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,10 +20,16 @@ public class PlaceRestController {
 	@Autowired
 	private IPlaceRepository repo;
 	
-	@GetMapping
+	@GetMapping(value="")
 	public List<Place> tous(){
 		
 		return repo.findAll();
+	}
+	
+	@PostMapping(value="")
+	public void addPlace(Place p) {
+		
+		repo.save(p);
 	}
 
 }
